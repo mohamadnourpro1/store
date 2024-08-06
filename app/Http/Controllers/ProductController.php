@@ -36,6 +36,8 @@ class ProductController extends Controller
          $product = Product::create([
           'name'=>$name_t,
           'description'=>$description_t,
+          'txt_description'=>$request->txt_description_ar,
+          'txt_description_en'=>$request->txt_description_en,
           'price'=>$request->price,
          ]);
          if($request->name_ar){

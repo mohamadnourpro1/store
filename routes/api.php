@@ -32,15 +32,16 @@ Route::group([
   Route::get('/user-profile', [AuthController::class, 'userProfile']);
   
   Route::get('/product',[ProductController::class,'index']);
+  Route::get('/product/{id}',[ProductController::class,'show']);
   //
   Route::post('/cart', [CartsProductsRelationController::class, 'store']);
 
   Route::get('/cart', [CartController::class, 'index']);
   Route::get('/mycart', [CartController::class, 'mycart']);
   Route::delete('/deltemyproducts', [CartController::class, 'deltemyproducts']);
+  Route::get('/ordermyproducts', [CartController::class, 'ordermyproducts']);
 });
 Route::post('/product',[ProductController::class,'store']);
-Route::get('/product/{id}',[ProductController::class,'show']);
 Route::post('/product/update/{id}',[ProductController::class,'update']);
 Route::delete('/product/delete/{id}',[ProductController::class,'destroy']);
 

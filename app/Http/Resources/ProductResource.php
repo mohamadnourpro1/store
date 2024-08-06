@@ -21,6 +21,15 @@ class ProductResource extends JsonResource
           'id' => $this->id,
           'name' => Translation::where('key',$this->name)->get(['value','language']),
           'description' => Translation::where('key',$this->description)->get(['value','language']),
+          'txt_description'=>[
+            [
+            'value'=>$this->txt_description,
+            'language'=>'ar'
+          ],[
+            'value'=>$this->txt_description_en,
+            'language'=>'en'
+          ],
+          ],
           'price' => $this->price,
           'images' => $this->image,
           'statuses' => $this->statuse()->get()->map(function($statuse) {

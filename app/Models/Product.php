@@ -11,6 +11,8 @@ class Product extends Model
     public $fillable = [
       'name',
       'description',
+      'txt_description',
+      'txt_description_en',
       'price',
   ];
   public function image(){
