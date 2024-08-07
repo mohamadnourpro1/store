@@ -39,6 +39,7 @@ class ProductController extends Controller
           'txt_description'=>$request->txt_description_ar,
           'txt_description_en'=>$request->txt_description_en,
           'price'=>$request->price,
+          'category_id'=>$request->category_id,
          ]);
          if($request->name_ar){
           // ربط الترجمة بالقسم
@@ -140,6 +141,11 @@ class ProductController extends Controller
               'price'=>$request->price,
              ]);
            }
+           if($request->category_id!=null){
+            $product->update([
+              'category_id'=>$request->category_id,
+              ]);
+            }
            $product->image->update([
             'image1'=>$request->image1,
             'image2'=>$request->image2,

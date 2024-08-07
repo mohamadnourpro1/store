@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartsProductsRelationController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StatuseController;
@@ -56,6 +57,11 @@ Route::get('/status',[StatuseController::class,'index']);
 Route::get('/status/{id}',[StatuseController::class,'show']);
 Route::post('/status/update/{id}',[StatuseController::class,'update']);
 Route::delete('/status/delete/{id}',[StatuseController::class,'destroy']);
+
+Route::post('/category',[CategoryController::class,'store']);
+Route::get('/category',[CategoryController::class,'index']);
+Route::post('/category/update/{id}',[CategoryController::class,'update']);
+Route::delete('/category/delete/{id}',[CategoryController::class,'destroy']);
 
 
 

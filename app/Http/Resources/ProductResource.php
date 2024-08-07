@@ -36,6 +36,11 @@ class ProductResource extends JsonResource
            $s = StatuseName::where('id', $statuse->statuse_name_id)->first();
            return Translation::where('key',$s->name)->get(['value','language']);
           }),
+          'category' => $this->category ? $this->category->name : '',
+          'category' => [
+            'name'=>Translation::where('key',$this->category ? $this->category->name : '')->get(['value','language']),
+            'description'=>Translation::where('key',$this->category ? $this->category->description : '')->get(['value','language'])
+          ],
           'created_at' => $this->created_at,
           'updated_at' => $this->updated_at,
         ];

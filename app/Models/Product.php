@@ -14,6 +14,7 @@ class Product extends Model
       'txt_description',
       'txt_description_en',
       'price',
+      'category_id',
   ];
   public function image(){
     return $this->hasOne(Image::class);
@@ -23,5 +24,8 @@ class Product extends Model
   }
   public function laststatuse(){
     return $this->hasMany(Statuse::class);
+  }
+  public function category(){
+    return $this->belongsTo(Category::class);
   }
 }
